@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>我的读书笔记 · 书页之间</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">书页之间</a>
+      <nav class="nav">
+        <a href="index.html" class="active">首页</a>
+        <a href="books.html">书籍列表</a>
+        <a href="add.html">添加笔记</a>
+        <a href="about.html">关于我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container page">
+
+      <section class="hero">
+        <h1>你好，我是OMG 👋</h1>
+        <p>这里放我读过的书，和随手写下的读书笔记。没有会员，没有广告，只有一个爱看书的人和他的一些想法。</p>
+      </section>
+
+      <p style="margin-top:-20px;margin-bottom:32px;">
+        <button id="random-btn" class="random-btn">🎲 随便看看</button>
+      </p>
+
+      <section class="stats">
+       <div class="stat-item">
+        <span class="stat-num" id="stat-books">0</span>
+        <span class="stat-label">本书</span>
+       </div>
+       <div class="stat-item">
+        <span class="stat-num" id="stat-comments">0</span>
+        <span class="stat-label">条评论</span>
+       </div>
+       <div class="stat-item">
+        <span class="stat-num" id="stat-likes">0</span>
+        <span class="stat-label">个赞</span>
+       </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">最新笔记</h2>
+        <div class="book-grid" id="latest-list"></div>
+      </section>
+
+      <section style="margin-top:48px;">
+        <h2 class="section-title">全部书籍</h2>
+        <div class="book-grid" id="home-all-list"></div>
+        <p style="text-align:center;margin-top:24px;">
+          <a href="books.html" style="color:var(--primary);font-size:15px;">查看全部 →</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 书页之间 · 个人读书笔记展示站 · 内容均为个人记录</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

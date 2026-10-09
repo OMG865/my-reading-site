@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>关于我 · 书页之间</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">书页之间</a>
+      <nav class="nav">
+        <a href="index.html">首页</a>
+        <a href="books.html">书籍列表</a>
+        <a href="add.html">添加笔记</a>
+        <a href="about.html" class="active">关于我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container page">
+
+      <!-- 个人介绍 -->
+      <section class="about-section">
+        <h2 class="section-title">关于我</h2>
+        <p>我是OMG，一名普通大学生。平时最大的爱好就是读书——文学、历史、科幻、推理都看一点，偶尔也读些杂七杂八的随笔。</p>
+        <p>对我来说，读书不只是看完就算了。我喜欢在书页的空白处写下想法，也喜欢读完之后坐下来，把那些触动过我的句子和感受整理成笔记。这个网站，就是我这些笔记的公开存放处。</p>
+        <p>我不是什么专业书评人，写的东西也不够深刻，但每一篇都是真实的。如果某本书、某段摘抄、某句感想能让你产生一点点共鸣，那这个网站就有意义了。</p>
+      </section>
+
+      <!-- 阅读偏好 -->
+      <section class="about-section">
+        <h2 class="section-title">我的阅读偏好</h2>
+        <div class="tag-grid">
+          <span class="tag-item">📖 文学小说</span>
+          <span class="tag-item">🔍 推理悬疑</span>
+          <span class="tag-item">🚀 科幻</span>
+          <span class="tag-item">🏛️ 历史</span>
+          <span class="tag-item">🧠 心理学</span>
+          <span class="tag-item">✍️ 随笔杂文</span>
+        </div>
+      </section>
+
+      <!-- 这个网站 -->
+      <section class="about-section">
+        <h2 class="section-title">关于这个网站</h2>
+        <p>“书页之间”是我自己搭建的读书笔记小站，用来公开分享我读过的书和随手写下的感想。</p>
+        <p>网站没有会员系统，没有广告，也不需要登录。所有人打开就能看，也欢迎你在任意一本书下面留言、点赞，或者直接通过“添加笔记”页面分享你自己的读书笔记。</p>
+        <p>这个网站的内容会持续更新，加书、写笔记、改细节。</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 书页之间 · 个人读书笔记展示站 · 内容均为个人记录</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    // 读取统计数据
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const [b, c, l] = await Promise.all([
+          fetch(`${SUPABASE_URL}/rest/v1/books?select=id`, { headers: HEADERS }).then(r => r.json()),
+          fetch(`${SUPABASE_URL}/rest/v1/comments?select=id`, { headers: HEADERS }).then(r => r.json()),
+          fetch(`${SUPABASE_URL}/rest/v1/likes?select=id`, { headers: HEADERS }).then(r => r.json())
+        ]);
+        document.getElementById('about-books').textContent = b.length;
+        document.getElementById('about-comments').textContent = c.length;
+        document.getElementById('about-likes').textContent = l.length;
+      } catch (err) {
+        console.error('统计数据加载失败', err);
+      }
+    });
+  </script>
+</body>
+</html>

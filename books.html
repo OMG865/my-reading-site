@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>书籍列表 · 书页之间</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">书页之间</a>
+      <nav class="nav">
+        <a href="index.html">首页</a>
+        <a href="books.html" class="active">书籍列表</a>
+        <a href="add.html">添加笔记</a>
+        <a href="about.html">关于我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container page">
+      <h1 class="section-title">全部书籍</h1>
+
+      <div class="toolbar">
+         <input type="text" id="search-box" class="search-box" placeholder="🔍 搜索书名或作者…">
+         <select id="sort-select" class="sort-select">
+         <option value="time">按阅读时间</option>
+         <option value="likes">按点赞数</option>
+         <option value="comments">按评论数</option>
+         </select>
+      </div>
+
+      <div class="status-bar">
+         <button class="status-btn active" data-status="all">全部</button>
+      </div>
+
+      <div class="book-grid" id="book-list"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 书页之间 · 个人读书笔记展示站 · 内容均为个人记录</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
